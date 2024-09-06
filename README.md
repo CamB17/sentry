@@ -1,2 +1,3 @@
 # sentry
-Inventory app for local client
+Inventory app for local client.
+NodeJs, React, Postgres and Tailwind
