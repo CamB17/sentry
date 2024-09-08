@@ -2,7 +2,16 @@
 
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
-import { Layout, LucideIcon, Menu } from "lucide-react";
+import {
+  Archive,
+  DollarSign,
+  Layout,
+  LucideIcon,
+  Menu,
+  ScanBarcode,
+  Settings2,
+  User2,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -11,7 +20,7 @@ import React from "react";
 interface SidebarLinkProps {
   href: string;
   icon: LucideIcon;
-  labelL: string;
+  label: string;
   isCollapsed: boolean;
 }
 
@@ -95,9 +104,39 @@ const Sidebar = () => {
           label="Dashboard"
           isCollapsed={isSidebarCollapsed}
         />
+        <SidebarLink
+          href="/inventory"
+          icon={Archive}
+          label="Inventory"
+          isCollapsed={isSidebarCollapsed}
+        />
+        <SidebarLink
+          href="/products"
+          icon={ScanBarcode}
+          label="Products"
+          isCollapsed={isSidebarCollapsed}
+        />
+        <SidebarLink
+          href="/users"
+          icon={User2}
+          label="Users"
+          isCollapsed={isSidebarCollapsed}
+        />
+        <SidebarLink
+          href="/expenses"
+          icon={DollarSign}
+          label="Expenses"
+          isCollapsed={isSidebarCollapsed}
+        />
+        <SidebarLink
+          href="/settings"
+          icon={Settings2}
+          label="Settings"
+          isCollapsed={isSidebarCollapsed}
+        />
       </div>
       {/*Footer*/}
-      <div>
+      <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
         <p className="text-center text-xs text-gray-500">&copy; 2024 Sentry</p>
       </div>
     </div>
