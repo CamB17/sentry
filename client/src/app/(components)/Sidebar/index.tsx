@@ -12,6 +12,7 @@ import {
   Settings2,
   User2,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -51,20 +52,20 @@ const SidebarLink = ({
           className={`${
             isCollapsed ? "hidden" : "block"
           } font-medium text-gray-700`}
-        ></span>
+        >{label}</span>
       </div>
     </Link>
   );
 };
 
 const Sidebar = () => {
-  const disptach = useAppDispatch();
+  const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
 
   const toggleSideBar = () => {
-    disptach(setIsSidebarCollapsed(!isSidebarCollapsed));
+    dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
   };
 
   const sidebarClassNames = `fixed flex flex-col ${
@@ -89,7 +90,7 @@ const Sidebar = () => {
         </h1>
 
         <button
-          className="md:hidden px-3 bg-gray-100 rounded-full hover:bg-blue-100"
+          className="md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100"
           onClick={toggleSideBar}
         >
           <Menu className="w-4 h-4" />
